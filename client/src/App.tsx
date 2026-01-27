@@ -10,7 +10,9 @@ import {
   Play,
   Cpu, 
   Eye, 
-  Lock
+  Lock,
+  Globe,
+  Rocket
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -110,12 +112,9 @@ const Nav = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (t:
 const Hero = ({ onExplore }: { onExplore: () => void }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Video Layer */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-20" />
         <div className="absolute inset-0 bg-black/40 z-20" />
-        
-        {/* Vimeo Background - Centered and scaled to cover */}
         <div className="absolute inset-0 z-10 w-full h-full overflow-hidden pointer-events-none">
            <iframe 
             src="https://player.vimeo.com/video/1062485498?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
@@ -124,8 +123,6 @@ const Hero = ({ onExplore }: { onExplore: () => void }) => {
             allow="autoplay; fullscreen" 
           />
         </div>
-        
-        {/* Animated Grid Overlay */}
         <div className="absolute inset-0 bg-grid-pattern opacity-20 z-30" />
       </div>
 
@@ -173,7 +170,6 @@ const Hero = ({ onExplore }: { onExplore: () => void }) => {
         </motion.div>
       </div>
 
-      {/* Decorative HUD Elements */}
       <div className="absolute bottom-10 left-6 text-xs text-white/50 font-mono hidden md:block z-40">
         COORDS: 34.0522° N, 118.2437° W<br />
         STATUS: MONITORING<br />
@@ -183,10 +179,53 @@ const Hero = ({ onExplore }: { onExplore: () => void }) => {
   );
 };
 
+const MissionVision = () => (
+  <div className="container mx-auto px-6 py-12 border-y border-white/5">
+    <div className="grid md:grid-cols-2 gap-12">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="flex gap-6 items-start"
+      >
+        <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 shrink-0">
+          <Rocket className="w-6 h-6 text-primary" />
+        </div>
+        <div>
+          <h4 className="text-xl font-display font-bold text-white mb-3">MISSION</h4>
+          <p className="text-neutral-400 leading-relaxed">
+            To eliminate the delay between threat detection and emergency response, 
+            ensuring every school becomes a safe haven through advanced autonomous intelligence.
+          </p>
+        </div>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        className="flex gap-6 items-start"
+      >
+        <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 shrink-0">
+          <Globe className="w-6 h-6 text-primary" />
+        </div>
+        <div>
+          <h4 className="text-xl font-display font-bold text-white mb-3">VISION</h4>
+          <p className="text-neutral-400 leading-relaxed">
+            A world where proactive technology anticipates crisis before it occurs, 
+            setting the global standard for public safety and threat prevention.
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+);
+
 const OurStory = () => {
   return (
     <div className="container mx-auto px-6 py-24">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <MissionVision />
+      <div className="grid lg:grid-cols-2 gap-16 items-center mt-24">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -304,7 +343,6 @@ const OurProduct = () => {
           </div>
           <div className="relative aspect-video lg:aspect-auto bg-black">
             <div className="absolute inset-0 flex items-center justify-center">
-               {/* Embed generic tech video if no specific video provided, or use the Vimeo link from user context */}
                <iframe 
                 src="https://player.vimeo.com/video/1062485498?background=1" 
                 className="w-full h-full absolute inset-0 opacity-60"
@@ -322,45 +360,84 @@ const OurProduct = () => {
   );
 };
 
+const RollingLogos = () => {
+  const logos = [
+    "Fortress Bank Tank",
+    "Venturewell E teams",
+    "Bradley University",
+    "Northwestern University",
+    "University of Illinois Urbana Champaign",
+    "SXSW",
+    "ISC west",
+    "ISC east",
+    "TechCrunch",
+    "Microsoft for startups",
+    "Distillery Labs"
+  ];
+
+  return (
+    <div className="w-full overflow-hidden bg-white/5 border-y border-white/10 py-10 relative">
+      <div className="flex gap-16 animate-[scroll_40s_linear_infinite] w-max items-center">
+        {[...logos, ...logos].map((logo, i) => (
+          <div 
+            key={i} 
+            className="text-neutral-500 font-display font-bold text-2xl uppercase tracking-tighter whitespace-nowrap hover:text-primary transition-colors cursor-default"
+          >
+            {logo}
+          </div>
+        ))}
+      </div>
+      <style>{`
+        @keyframes scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+    </div>
+  );
+};
+
 const Traction = () => {
   return (
-    <div className="container mx-auto px-6 py-24">
-      <div className="grid lg:grid-cols-2 gap-16">
-        <div>
-          <h2 className="text-primary text-lg font-bold tracking-widest mb-2">VALIDATION</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-            TRACTION & ANALYTICS
-          </h3>
-          <p className="text-neutral-400 text-lg mb-8">
-            Our technology isn't just theoretical. We've rigorously tested our models against 
-            diverse datasets and real-world simulation environments.
-          </p>
+    <div className="py-24">
+      <div className="container mx-auto px-6 mb-16">
+        <div className="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-primary text-lg font-bold tracking-widest mb-2">VALIDATION</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+              TRACTION & ANALYTICS
+            </h3>
+            <p className="text-neutral-400 text-lg mb-8">
+              Our technology isn't just theoretical. We've rigorously tested our models against 
+              diverse datasets and real-world simulation environments.
+            </p>
 
-          <div className="space-y-6">
-            {[
-              { label: "Model Accuracy", value: 87, color: "bg-primary" },
-              { label: "False Positive Rate Reduction", value: 94, color: "bg-blue-500" },
-              { label: "Response Speed Improvement", value: 99, color: "bg-emerald-500" }
-            ].map((stat, i) => (
-              <div key={i}>
-                <div className="flex justify-between mb-2">
-                  <span className="text-white font-medium">{stat.label}</span>
-                  <span className="text-white font-bold">{stat.value}%</span>
+            <div className="space-y-6">
+              {[
+                { label: "Model Accuracy", value: 87, color: "bg-primary" },
+                { label: "False Positive Rate Reduction", value: 94, color: "bg-blue-500" },
+                { label: "Response Speed Improvement", value: 99, color: "bg-emerald-500" }
+              ].map((stat, i) => (
+                <div key={i}>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-white font-medium">{stat.label}</span>
+                    <span className="text-white font-bold">{stat.value}%</span>
+                  </div>
+                  <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${stat.value}%` }}
+                      transition={{ duration: 1, delay: i * 0.2 }}
+                      className={`h-full ${stat.color}`} 
+                    />
+                  </div>
                 </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${stat.value}%` }}
-                    transition={{ duration: 1, delay: i * 0.2 }}
-                    className={`h-full ${stat.color}`} 
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 gap-6">
           <Card className="bg-neutral-900 border-white/10">
             <CardContent className="p-6">
               <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
@@ -391,6 +468,7 @@ const Traction = () => {
           </Card>
         </div>
       </div>
+      <RollingLogos />
     </div>
   );
 };
@@ -469,13 +547,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 selection:text-white">
       <Nav activeTab={activeTab} setActiveTab={setActiveTab} />
-      
-      {/* 
-        Hero is always visible. The content below changes based on tabs.
-        If "hero" (Home) is selected, we show all sections.
-        If a specific tab is selected, we show ONLY that section for focused reading.
-      */}
-      
       <Hero onExplore={() => setActiveTab("product")} />
       
       <main className="relative z-10 bg-background shadow-[0_-20px_50px_rgba(0,0,0,1)]">
