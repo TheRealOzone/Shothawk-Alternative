@@ -1,0 +1,384 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShotHawk AI – Predict Every Play</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
+
+<body class="text-neutral-100 font-[Inter] bg-neutral-900">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-900/70">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 hover:opacity-90 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[24px] h-[24px]" style="width: 24px; height: 24px; color: rgb(239, 68, 68);"><path d="M16 7h.01"></path><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"></path><path d="m20 7 2 .5-2 .5"></path><path d="M10 18v3"></path><path d="M14 17.75V21"></path><path d="M7 18a6 6 0 0 0 3.84-10.61"></path></svg>
+          <span class="text-lg font-semibold tracking-tight">ShotHawk</span>
+        </a>
+
+        <!-- Nav Links -->
+        <nav class="hidden md:flex gap-8 text-sm">
+          <a href="#overview" class="hover:text-red-400 transition-colors">Overview</a>
+          <a href="#technology" class="hover:text-red-400 transition-colors">Products</a>
+          <a href="#media" class="hover:text-red-400 transition-colors">Media</a>
+          <a href="#analytics" class="hover:text-red-400 transition-colors">Traction</a>
+          <a href="#about" class="hover:text-red-400 transition-colors">About</a>
+          <a href="#roadmap" class="hover:text-red-400 transition-colors">Roadmap</a>
+          <a href="#pricing" class="hover:text-red-400 transition-colors">Pricing</a>
+          <a href="#contact" class="hover:text-red-400 transition-colors">Contact</a>
+        </nav>
+
+        <!-- CTA -->
+        
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-neutral-800 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-5 h-5"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-neutral-900 border-t border-neutral-800">
+      <nav class="px-6 py-4 space-y-4 text-sm">
+        <a href="#overview" class="block hover:text-red-400">Overview</a>
+        <a href="#technology" class="block hover:text-red-400">Technology</a>
+        <a href="#media" class="block hover:text-red-400">Media</a>
+        <a href="#analytics" class="block hover:text-red-400">Analytics</a>
+        <a href="#about" class="block hover:text-red-400">About</a>
+        <a href="#roadmap" class="block hover:text-red-400">Roadmap</a>
+        <a href="#pricing" class="block hover:text-red-400">Pricing</a>
+        <a href="#contact" class="block hover:text-red-400">Contact</a>
+        <a href="#" class="inline-flex items-center gap-1 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-neutral-50 hover:bg-red-500 transition">
+          <span>Sign In</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-in" class="lucide lucide-log-in w-4 h-4"><path d="m10 17 5-5-5-5"></path><path d="M15 12H3"></path><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative lg:pt-32 pt-24">
+    <div class="max-w-7xl grid lg:grid-cols-2 gap-12 mr-auto ml-auto pr-6 pl-6 items-center">
+      
+      <div class="space-y-6"><h1 class="sm:text-5xl lg:text-6xl leading-tight transition-all duration-700 animate-in delay-100 text-4xl font-semibold tracking-tight">Respond In Seconds</h1><p class="max-w-lg transition-all duration-700 animate-in delay-200 text-neutral-400">School shootings are serious, and so are we. Push one button, and our product will provide an AI driven response in seconds  - learn more about our product, the SPOT.</p><div class="flex gap-4 transition-all duration-700 animate-in delay-300">
+          <a href="#pricing" class="inline-flex items-center gap-2 hover:bg-red-500 transition text-sm font-medium text-neutral-50 bg-red-600 rounded-md pt-3 pr-6 pb-3 pl-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" class="lucide lucide-zap w-4 h-4"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>Purchase Today</a>
+          <a href="#technology" class="inline-flex items-center gap-2 hover:border-red-400 hover:text-red-400 transition text-sm font-medium border-neutral-700 border rounded-md pt-3 pr-6 pb-3 pl-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle w-4 h-4"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>See How It Works
+          </a>
+        </div></div><div class="relative h-72 sm:h-96 lg:h-[480px] transition-all duration-700 animate-in delay-400">
+        <img src="https://i.vimeocdn.com/video/1989409387-4b4f3d32b44fc32f0a100400d43e173c7fc7d7fdf00c9d8fe91e3cc5c7c3ba01-d" alt="" class="absolute inset-0 w-full h-full shadow-red-600/10 object-cover rounded-xl shadow-lg">
+        <div class="absolute inset-0 ring-1 ring-inset ring-red-600/20 rounded-xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- Technology -->
+  <section id="technology" class="mx-auto max-w-7xl px-6">
+    <h2 class="transition-all duration-700 animate-in delay-100 text-3xl font-semibold tracking-tight mb-4">Working Smarter, Not Harder</h2>
+    <p class="max-w-2xl transition-all duration-700 animate-in delay-200 text-neutral-400 mb-12">Combining computer vision, machine learning, and custom mechanics, our products - The BETA and SPOT -  are capable of delivering a 85%+ accurate response within seconds.</p>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="rounded-lg border border-neutral-800 p-6 hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition group transition-all duration-700 animate-in delay-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="camera" class="lucide lucide-camera w-6 h-6 text-red-500 mb-4"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+        <h3 class="text-lg font-medium mb-2">Computer Vision</h3>
+        <p class="text-sm text-neutral-400">Analyzing the data frame by frame to provide an accurate response</p>
+      </div>
+      <div class="rounded-lg border border-neutral-800 p-6 hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition group transition-all duration-700 animate-in delay-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="cpu" class="lucide lucide-cpu w-6 h-6 text-red-500 mb-4"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg>
+        <h3 class="text-lg font-medium mb-2">Neural Prediction</h3>
+        <p class="text-sm text-neutral-400">Several videos and images used to train the model to track gun movement to anticipate the shooter's next move</p>
+      </div>
+      <div class="rounded-lg border border-neutral-800 p-6 hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition group transition-all duration-700 animate-in delay-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield" class="lucide lucide-shield w-6 h-6 text-red-500 mb-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+        <h3 class="text-lg font-medium mb-2">Secure &amp; Private</h3>
+        <p class="text-sm text-neutral-400">ShotHawk works on-edge to protect your privacy and to provide a secure response every time</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- Media Section -->
+  <section id="media" class="mx-auto max-w-7xl px-6">
+    <h2 class="text-3xl font-semibold tracking-tight mb-4 transition-all duration-700 animate-in delay-100">Featured Videos</h2>
+    <p class="max-w-2xl transition-all duration-700 animate-in delay-200 text-neutral-400 mb-12">From ideation to testing, we have it all documented. Check us out and see how our product works under the hood and in its element.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Video Embed -->
+      <div class="relative w-full h-0 overflow-hidden hover:border-red-400 transition shadow-red-600/10 hover:shadow-lg transition-all duration-700 animate-in delay-300 border-neutral-800 border rounded-xl pb-[56.25%]"><div style="padding:56.25% 0 0 0;position:relative;" class=""><iframe src="https://player.vimeo.com/video/954100140?h=edfd852d97&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="shothawk_test3.mov" data-ready="true" class=""></iframe></div><script src="https://player.vimeo.com/api/player.js"></script></div>
+      <div class="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-neutral-800 hover:border-red-400 transition shadow-red-600/10 hover:shadow-lg transition-all duration-700 animate-in delay-400">
+        <div style="padding:56.25% 0 0 0;position:relative;" class=""><iframe src="https://player.vimeo.com/video/1071625888?h=d2be0ed006&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="gunman_out.MP4.mp4" data-ready="true" class=""></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
+      <div class="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden border border-neutral-800 hover:border-red-400 transition shadow-red-600/10 hover:shadow-lg transition-all duration-700 animate-in delay-500">
+        <div style="padding:56.25% 0 0 0;position:relative;" class=""><iframe src="https://player.vimeo.com/video/1062485498?h=16fae747fe&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1888" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ShotHawk Video.mov" data-ready="true" class=""></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- ─────────────────────  TRACTION  ───────────────────── -->
+  <section id="traction" class="mx-auto max-w-7xl px-6">
+    <div class="space-y-6">
+      <h2 class="text-3xl font-semibold tracking-tight">Fundraising and Interviewing</h2>
+      <p class="max-w-2xl text-neutral-400">With our startup fundraising approaching $131,000, we plan on beginning pre-seed funding soon. We have also been featured on the sites shown below! Click to learn more</p>
+    </div>
+
+    <!-- Coverage Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
+      <!-- Card -->
+      <a href="https://www.25newsnow.com/2025/05/05/peoria-based-startup-aims-offer-improved-response-shootings/" target="_blank" class="group flex flex-col hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition border-neutral-800 border rounded-lg">
+        <div class="flex gap-3 pt-6 pr-6 pb-3 pl-6 items-center">
+          <img alt="25 News" class="h-6 w-auto object-cover" src="https://www.25newsnow.com/resizer/v2/3YQGOF5BHJDYRA65LVE4MGHDRU.png?w=800&amp;q=80">
+          <span class="text-sm font-medium"></span>
+        </div>
+        <p class="px-6 pb-6 text-sm text-neutral-400 group-hover:text-neutral-200">“Illinois startup builds AI-powered device aimed at mitigating school shootings.”</p>
+      </a>
+
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/solve-peoria-non-profit-starts-new-program-aiming-to/id1765207524?i=1000715205271" class=""></iframe>
+        
+      
+
+      <a href="https://www.centralillinoisproud.com/video/shothawk-the-future-of-safety/10395950/" target="_blank" class="group flex flex-col rounded-lg border border-neutral-800 hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition">
+        <div class="flex gap-3 pt-6 pr-6 pb-3 pl-6 items-center">
+          <img src="https://assets.brandfetch.io/ide8OU7AJ6/idpOSfwX-P.svg" alt="WGN Radio" class="h-6 w-auto">
+          <span class="text-sm font-medium">WMBD News</span>
+        </div>
+        <p class="group-hover:text-neutral-200 text-sm text-neutral-400 pr-6 pb-6 pl-6">"ShotHawk: The  future of safety"</p>
+      </a>
+
+      <a href="https://www.centralillinoisproud.com/video/5-fast-food-restaurants-you-didnt-know-had-a-secret-menu/9812184/" class="">
+        <div class="flex items-center gap-3 p-6 pb-3">
+          <img src="https://www.wcbu.org/local-news/2025-01-22/peoria-based-startup-shothawk-aims-to-defend-against-active-shooter-events">
+          <span class="text-sm font-medium">WCBU.org</span>
+        </div>
+        <p class="group-hover:text-neutral-200 text-sm text-neutral-400 pr-6 pb-6 pl-6">"Peoria-based startup ShotHawk aims to defend against active shooter events"</p>
+      </a>
+
+    
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- About Section -->
+  <section id="about" class="mx-auto max-w-7xl px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="">
+        <h2 class="transition-all duration-700 animate-in delay-100 text-3xl font-semibold tracking-tight mb-6">Why Us?</h2>
+        <p class="transition-all duration-700 animate-in delay-200 text-neutral-400 mb-6">Founded by a group of 3 frustrated students, ShotHawk was a testament to creating safer spaces by combining engineering and determination. Our mission is to provide an autonomous threat mitigation device to protect schools and businesses. We are comitted to providing children and families a peace of mind by eliminating gun and knife threats one building at a time.</p>
+        <p class="transition-all duration-700 animate-in delay-300 text-neutral-400">Today, we have the honor to be pilot testing in 15 varying locations throughout the State of Illinois in partnership with the Illinois Science and Technology Coalition. With every install, we see our vision of enabling children and communities to be safe; moreover, by 2030, we see ShotHawk as an installed countermeasure to Active Threat Situations in ALL buildings serving ALL communities.</p>
+      </div>
+      <div class="relative h-72 sm:h-96 lg:h-[480px] transition-all duration-700 animate-in delay-400">
+        <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=1080&amp;q=80" alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-lg shadow-red-600/10">
+        <div class="absolute inset-0 ring-1 ring-inset ring-red-600/20 rounded-xl"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- Roadmap Section -->
+  <section class="max-w-7xl mr-auto ml-auto pr-6 pl-6">
+    <h2 class="text-3xl font-semibold tracking-tight mb-12 transition-all duration-700 animate-in delay-100">Product Roadmap</h2>
+
+    <ol class="relative border-neutral-800 border-l pl-6 space-y-12">
+      <!-- Item -->
+      <li class="transition-all duration-700 animate-in delay-200">
+        <span class="absolute -left-[11px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 ring-2 ring-neutral-900 text-xs font-medium">✔</span>
+        <h3 class="text-lg font-medium">Sep 2022  – ShotHawk is Born</h3>
+        <p class="text-sm text-neutral-400 mt-2">Frustrated after the Uvalde Shooting, cofounders Brandon and Ohm originate the idea</p>
+      </li>
+      <!-- Item -->
+      <li class="transition-all duration-700 animate-in delay-300">
+        <span class="absolute -left-[11px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 ring-2 ring-neutral-900 text-xs font-medium">✔</span>
+        <h3 class="text-lg font-medium">EOY  2023 - Strides Are Made</h3>
+        <p class="text-sm text-neutral-400 mt-2">ShoHawk LLC is filed - Feb 2023 </p> <p class="text-sm text-neutral-400 mt-2">ShotHawk wins Bradley's Social Impact 1st Place Prize of $7,000 - Sep. 2023</p>
+      </li>
+      <!-- Item -->
+      <li class="transition-all duration-700 animate-in delay-400">
+        <span class="absolute -left-[11px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-600/50 ring-2 ring-neutral-900 text-xs font-medium">⌛</span>
+        <h3 class="text-lg font-medium">Q1 &amp; Q2 2024 – Startup Pre Fundraising and Win Streak</h3>
+        <p class="text-sm text-neutral-400 mt-2">Provisional IP Filed - Mar 2024</p><p class="text-sm text-neutral-400 mt-2"> ShotHawk wins Bradley's BIG IDEA 2nd Place Prize of $6000 - Apr 2024</p><p class="text-sm text-neutral-400 mt-2">
+ShotHawk wins Fortress Bank's 'Bank Tank' Finalist Prize of $2000 - Apr 2024</p><p class="text-sm text-neutral-400 mt-2">
+Phase 1 of 3 Pilot Program Kickoff Begins - May 2024</p><p></p><p></p><p></p>
+      </li>
+      <!-- Item -->
+      <li class="transition-all duration-700 animate-in delay-500">
+        <span class="absolute -left-[11px] top-1.5 flex h-5 w-5 items-center justify-center text-xs font-medium bg-transparent border-neutral-600 border rounded-full">🚀</span>
+        <h3 class="text-lg font-medium">Q3 &amp; Q4 2024– ShotHawk Opens First Office &amp; Grant Awards</h3>
+        <p class="text-sm text-neutral-400 mt-2">ShotHawk Opens an Office in Distillery Labs in Peoria, IL - Aug 2024</p> <p class="text-sm text-neutral-400 mt-2">Awarded $150,000 Azure Credits by Microsoft for Startups - Sep 2024</p> <p class="text-sm text-neutral-400 mt-2">Awarded $25,000 by the City of Peoria Technology Grant - Nov 2024</p> <p class="text-sm text-neutral-400 mt-2">Awarded $75,000 by the Illinois Science and Technology Coalition - Dec 2024</p><p></p>
+      </li>
+      
+      <!-- Item -->
+      <li class="transition-all duration-700 animate-in delay-500">
+        <span class="absolute -left-[11px] top-1.5 flex h-5 w-5 items-center justify-center text-xs font-medium bg-transparent border-neutral-600 border rounded-full">🚀</span>
+        <h3 class="text-lg font-medium">Q1 &amp; Q2 2025 - Pilot Program and BETA Sales</h3>
+        <p class="text-sm text-neutral-400 mt-2">ShotHawk Creates a fully working MVP - Jan 2025</p> <p class="text-sm text-neutral-400 mt-2">Cofounders Brandon and Ohm travel to San Francisco, CA to attend Marsh's Technology Event - Feb 2025</p> <p class="text-sm text-neutral-400 mt-2">Cofounders Brandon and Ohm attend Summerfest 2025 - June 2025</p> <p class="text-sm text-neutral-400 mt-2">ISTC pilot program is successfully completed - Aug 2025</p><p></p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- Pricing -->
+  <section class="max-w-7xl mr-auto ml-auto pr-6 pl-6">
+    <div class="text-center mb-12">
+      <h2 class="transition-all duration-700 animate-in delay-100 text-3xl font-semibold tracking-tight mb-4">Purchase one Today!</h2>
+      <p class="max-w-xl transition-all duration-700 animate-in delay-200 text-neutral-400 mr-auto ml-auto">Whether you’re purchasing for a K-12 School, Small Business, Institution, or Enterprise Building, ShotHawk has you protected for all cases.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Starter -->
+      <div class="relative flex flex-col hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition transition-all duration-700 animate-in delay-300 border-neutral-800 border rounded-lg pt-8 pr-8 pb-8 pl-8"><h3 class="text-lg font-medium mb-4">BETA</h3><p class="text-4xl font-semibold tracking-tight mb-6"><span class="text-base font-medium text-neutral-400"></span>$3000 + $30/mo</p><ul class="leading-relaxed flex-1 text-sm space-y-3">
+          
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-red-500"><path d="M20 6 9 17l-5-5"></path></svg>Push Button Activation</li><li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-red-500" style="color: rgb(239, 68, 68); width: 16px; height: 16px;"><path d="M20 6 9 17l-5-5"></path></svg>AI Driven Response</li>
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="minus" class="lucide lucide-minus w-[16px] h-[16px]" style="width: 16px; height: 16px; color: rgb(82, 82, 82);"><path d="M5 12h14"></path></svg>Plug &amp; Play Into Existing Security Systems</li>
+        </ul><a href="#" class="inline-flex justify-center hover:bg-neutral-700 transition text-sm font-medium bg-neutral-800 rounded-md mt-8 pt-2 pr-4 pb-2 pl-4">Choose BETA</a></div>
+
+      <!-- Pro -->
+      
+
+      <!-- Enterprise -->
+      
+    <div class="relative flex flex-col shadow-red-600/10 hover:shadow-red-600/20 transition transition-all duration-700 animate-in delay-400 bg-neutral-800/40 border-red-600 border-2 rounded-lg pt-8 pr-8 pb-8 pl-8 shadow-lg">
+        <span class="absolute -top-3 right-4 text-xs font-medium text-neutral-50 bg-red-600 rounded pt-1 pr-2 pb-1 pl-2">
+Recommended</span>
+        <h3 class="text-lg font-medium mb-4">SPOT</h3>
+        <p class="text-4xl font-semibold tracking-tight mb-6">$6000 + $50/mo<span class="text-base font-medium text-neutral-400"></span></p>
+        <ul class="leading-relaxed flex-1 text-sm space-y-3">
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-[16px] h-[16px]" style="width: 16px; height: 16px; color: rgb(239, 68, 68);"><path d="M20 6 9 17l-5-5"></path></svg>Everything from BETA</li>
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-[16px] h-[16px]" style="width: 16px; height: 16px; color: rgb(239, 68, 68);"><path d="M20 6 9 17l-5-5"></path></svg></li>
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-red-500"><path d="M20 6 9 17l-5-5"></path></svg>Custom API access</li>
+        </ul>
+        <a href="#" class="inline-flex justify-center hover:bg-red-500 transition text-sm font-medium text-neutral-50 bg-red-600 rounded-md mt-8 pt-2 pr-4 pb-2 pl-4">Choose SPOT</a>
+      </div><div class="relative flex flex-col hover:border-red-400 hover:shadow-red-600/10 hover:shadow-lg transition transition-all duration-700 animate-in delay-500 border-neutral-800 border rounded-lg pt-8 pr-8 pb-8 pl-8">
+        <h3 class="text-lg font-medium mb-4">Enterprise</h3>
+        <p class="text-4xl font-semibold tracking-tight mb-6">Custom</p>
+        <ul class="space-y-3 text-sm leading-relaxed flex-1">
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-[16px] h-[16px]" style="width: 16px; height: 16px; color: rgb(239, 68, 68);"><path d="M20 6 9 17l-5-5"></path></svg>Leasing</li>
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-red-500"><path d="M20 6 9 17l-5-5"></path></svg>Dedicated support</li>
+          <li class="flex gap-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-red-500"><path d="M20 6 9 17l-5-5"></path></svg>Custom feature roadmap</li>
+        </ul>
+        <a href="#" class="mt-8 inline-flex justify-center rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium hover:bg-neutral-700 transition">Contact Us</a>
+      </div></div>
+  </section>
+
+  <!-- Divider -->
+  <div class="mx-auto max-w-7xl px-6"><div class="h-px bg-neutral-800 my-24"></div></div>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-7xl px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="">
+        <h2 class="transition-all duration-700 animate-in delay-100 text-3xl font-semibold tracking-tight mb-6">Join The Mission, Help Our Vision</h2>
+        <p class="max-w-lg transition-all duration-700 animate-in delay-200 text-neutral-400 mb-8">We would love to meet with you for any queries or information we can provide. Please drop us some information, and we will get to you as soon as possible.</p>
+        <form class="space-y-6 transition-all duration-700 animate-in delay-300">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <input type="text" placeholder="First name" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-4 py-3 text-sm focus:border-red-600 focus:ring-red-600/20 focus:outline-none">
+            <input type="text" placeholder="Last name" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-4 py-3 text-sm focus:border-red-600 focus:ring-red-600/20 focus:outline-none">
+          </div>
+          <input type="email" placeholder="Email" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-4 py-3 text-sm focus:border-red-600 focus:ring-red-600/20 focus:outline-none">
+          <textarea rows="4" placeholder="Tell us about your program…" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-4 py-3 text-sm focus:border-red-600 focus:ring-red-600/20 focus:outline-none"></textarea>
+          <button type="submit" class="inline-flex items-center gap-2 rounded-md bg-red-600 px-6 py-3 text-sm font-medium text-neutral-50 hover:bg-red-500 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" class="lucide lucide-send w-4 h-4"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>Send Message
+          </button>
+        </form>
+      </div>
+      <div class="relative h-72 sm:h-96 lg:h-[480px] transition-all duration-700 animate-in delay-400">
+        <iframe src="https://shothawkai-my.sharepoint.com/personal/ohm_shothawkai_onmicrosoft_com/_layouts/15/embed.aspx?UniqueId=6d8b1ae9-a6f7-4709-a4e1-51b2b9985391" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen="" title="Logo (1)" class=""></iframe>
+        <div class="absolute inset-0 overflow-hidden rounded-xl" style="clip-path: inset(0 round 0.75rem)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Scripts -->
+  <!-- ───────────────────── FOOTER ───────────────────── -->
+  <footer class="mt-24 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+      <div class="flex items-center gap-4">
+        <p class="text-neutral-500">© <span id="year">2025</span> ShotHawk AI. All rights reserved.</p>
+        <!-- Partner / Investor Logos -->
+        <div class="flex items-center gap-3">
+          <img src="https://placehold.co/60x24/1e1e1e/ffffff?text=ISTC" alt="ISTC logo" class="h-4 w-auto opacity-70 hover:opacity-100 transition">
+          <img src="https://placehold.co/60x24/1e1e1e/ffffff?text=NSF" alt="NSF logo" class="h-4 w-auto opacity-70 hover:opacity-100 transition">
+          <img src="https://placehold.co/60x24/1e1e1e/ffffff?text=IHSA" alt="IHSA logo" class="h-4 w-auto opacity-70 hover:opacity-100 transition">
+          <img src="https://placehold.co/60x24/1e1e1e/ffffff?text=GEN" alt="GEN logo" class="h-4 w-auto opacity-70 hover:opacity-100 transition">
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-red-400 transition">Privacy</a>
+        <a href="#" class="hover:text-red-400 transition">Terms</a>
+        <a href="#" class="hover:text-red-400 transition">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ───────────────────── SCRIPTS ───────────────────── -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    document.getElementById('menuBtn').addEventListener('click',()=>
+      document.getElementById('mobileMenu').classList.toggle('hidden'));
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+ <!-- <div class="mx-auto max-w-7xl px-6" --=""--><!--<div class="h-px bg-neutral-800 my-24"--> 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Lucide icons
+    lucide.createIcons();
+
+    // Chart.js setup
+    const ctx = document.getElementById('shotsChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Q1','Q2','Q3','Q4','OT'],
+          datasets:[{label:'Shot Accuracy %',data:[78,81,76,83,80],borderColor:'#dc2626',borderWidth:2,tension:.4,pointRadius:0}]
+        },
+        options:{
+          responsive:true,maintainAspectRatio:false,
+          scales:{y:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#9ca3af'}},
+                  x:{grid:{display:false},ticks:{color:'#9ca3af'}}},
+          plugins:{legend:{display:false}}
+        }
+      });
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll-in animations
+    const animated = document.querySelectorAll('.animate-in');
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.remove('opacity-0','translate-y-8');
+          observer.unobserve(e.target);
+        }
+      });
+    },{threshold:.2});
+    animated.forEach(el=>observer.observe(el));
+  </script>
+
+</body></html>
