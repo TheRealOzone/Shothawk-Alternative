@@ -138,9 +138,9 @@ const Hero = ({ onExplore }: { onExplore: () => void }) => {
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl">
-            PREDICT <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-400 glitch-effect" data-text="EVERY PLAY">
-              EVERY PLAY
+            REACT <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-400 glitch-effect" data-text="NOW">
+              NOW
             </span>
           </h1>
           
