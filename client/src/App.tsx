@@ -448,7 +448,7 @@ const Traction = () => {
                 <div className="relative">
                   <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-primary" />
                   <div className="text-sm text-primary font-bold mb-1">PHASE 1 - COMPLETED</div>
-                  <div className="text-white font-bold">Alpha Testing</div>
+                  <div className="text-white font-bold">Pilot Testing</div>
                   <div className="text-xs text-neutral-500">Core algorithm validation</div>
                 </div>
                 <div className="relative">
