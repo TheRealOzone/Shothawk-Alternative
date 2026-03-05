@@ -3,3 +3,5 @@ deployment:
     - export DEPLOYPATH=/home/$USER/public_html/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R * $DEPLOYPATH
+cd ~/repositories/Shothawk-Alternative   # change this to your actual repo folder
+git status
